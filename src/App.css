@@ -396,9 +396,10 @@ ul {
   padding-top: 80px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   z-index: -1;
+  padding-bottom: 220px;
 }
 
 
@@ -432,66 +433,99 @@ ul {
 /* BODY CSS ENDS HERE */
 
 
-.mediaplayer{
+.mediaplayer {
   /* display: absolute; */
+  /* background-color: #181d25; */
+  padding: 0px 20px;
+  /* border-radius: 10px; */
   position: fixed;
-  bottom:10px;
-  left:10px;
-  /* top:90vh; */
-  /* bottom:10px; */
-  background-color: red;
+  bottom: 10px;
+  left: 10px;
+
+
 
 }
-.mediaplayer iframe{
-  position:fixed;
-  bottom:10px;
-  left:10px;
-  display:block;
-  border:0;
-  height:210px;
-  width:200px;
-  z-index: 10;
-}
-.playerImg,.playerImg img{
-  /* margin: 0px auto; */
-  width:200px;
-  height: 200px;
+
+.mediaplayer audio {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  display: block;
+  border: 0;
+  /* height:50px; */
+  width: calc(100vw - 20px);
+  /* z-index: 10; */
 }
 
-.searchEngines{
+.playerImg {
+  display: flex;
   color: white;
-  background-color: #06000070;
-  width:98vw;
-  margin:0 auto;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin: 60px 0;
 }
 
-.searchEngineName{
+.playerImg img {
+  margin: 0px 10px;
+  min-width: 100px;
+  width: 10vw;
+  border-radius: 10px;
+  /* height: 200px; */
+}
+
+.playerImg h1 {
+  background-color: #181d25;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.searchEngines {
+  color: white;
+  background-color: #181d25bb;
+  width: 98vw;
+  max-height: 350px;
+  margin: 10px auto;
+  border: 5px solid white;
+  border-radius: 10px;
+}
+
+.searchEngineName {
   font-size: 35px;
-  margin:10px;
-}
-.musicItems{
-  display:flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin:0 10px;
-  overflow-x: auto;
+  margin: 10px 30px;
 }
 
-.musicItem{
+.musicItems {
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: flex-start;
+  margin: 0 0px;
+  overflow-x: scroll;
+}
+
+.musicItem {
   text-align: center;
-  min-width:20vw;
-  max-width:20vw;
-  margin:10px;
-  padding: 0px;
-  overflow-y: auto;
-  /* max-height: 400px; */
+  position: relative;
+  left: 10px;
+  margin: 0px auto 5px auto;
+  height: 250px
+    /* width:200px; */
+    /* overflow-y: auto; */
+    /* max-height: 400px; */
 }
-.musicImage img{
-  width:20vw;
-  max-height: 300px;
+
+.musicItem img:hover {
+  z-index: 1000;
+  transform: scale(1.1);
+  transition: 0.5s;
 }
-.musicTitle{
+
+.musicItem img {
+  width: 200px;
+  min-width: 60px;
+}
+
+.musicTitle {
   font-size: 1rem;
   max-height: 25px;
-  width:20vw;
+  width: 20vw;
 }

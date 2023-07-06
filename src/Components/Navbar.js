@@ -16,10 +16,6 @@ export default function Navbar({ setTitle }) {
       <div className="wrapper">
         <nav>
           <input type="checkbox" id="show-search" />
-          <input type="checkbox" id="show-menu" />
-          <label htmlFor="show-menu" className="menu-icon">
-            <i className="fas fa-bars"></i>
-          </label>
           <div className="content">
             <div className="logo">
               <a href="/">
