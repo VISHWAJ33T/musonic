@@ -10,7 +10,7 @@ export default function SearchEngine({
   setArticles,
 }) {
   const [article, setArticle] = useState([]);
-  let searchURL = `/api?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`;
+  let searchURL = `/search?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`;
   // const updateSearch = async () => {
   //   const data = await fetch(searchURL);
   //   setLoading(true);
