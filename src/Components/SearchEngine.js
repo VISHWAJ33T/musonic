@@ -16,20 +16,17 @@ export default function SearchEngine({
     const updateSearch = async () => {
       try {
         const data = await fetch(`/api?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
+        console.log('API response:', data); // Log the API response
         setLoading(true);
         setProgress(10);
         let parsedData = await data.json();
-        console.log(parsedData); // Log the API response for debugging
-        setProgress(40);
-        setArticle(parsedData.response);
-        setProgress(80);
-        setLoading(false);
-        setProgress(100);
+        // ...
       } catch (error) {
         console.error('Error fetching API:', error);
-        // Handle the error case and display an error message to the user
+        // ...
       }
     };
+    
     
 
     updateSearch();
