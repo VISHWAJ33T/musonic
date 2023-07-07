@@ -8,7 +8,7 @@ export default function SearchEngine({
   setLoading,
   title,
   articles,
-  setArticles,
+  // setArticles,
 }) {
   const [article, setArticle] = useState([]);
 
@@ -19,7 +19,7 @@ export default function SearchEngine({
         console.log('API response:', data); // Log the API response
         setLoading(true);
         setProgress(10);
-        let parsedData = await data.json();
+        // let parsedData = await data.json();
         // ...
       } catch (error) {
         console.error('Error fetching API:', error);
