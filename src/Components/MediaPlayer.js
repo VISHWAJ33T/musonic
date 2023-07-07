@@ -16,7 +16,7 @@ export default function MediaPlayer() {
     if (audioRef.current) {
       audioRef.current.src = audioSrc;
       audioRef.current.load();
-      audioRef.current.play(); // Autoplay when the src is updated
+      // audioRef.current.play(); // Autoplay when the src is updated
     }
   }, [audioSrc]);
 
@@ -25,7 +25,7 @@ export default function MediaPlayer() {
       <div className="mediaplayer">
         <div className="playerImg">
           <img src={`https://hls-server.vercel.app/img/${img}`} alt="" />
-          <h1>{title}</h1>
+          <h2>{title}</h2>
         </div>
         <audio controls autoPlay ref={audioRef}>
           <source src={audioSrc} type="audio/mp3" />

@@ -23,31 +23,22 @@ export default function SearchEngine({
     setProgress(100);
   };
 
-  
   useEffect(() => {
     // window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    updateSearch()
-    console.log("article")
-    console.log(article)
-    console.log("articles")
-    console.log(articles)
+    updateSearch();
     return () => {
       updateSearch();
-    }
+    };
   }, [title]);
   return (
     <div className="searchEngines">
-      <h3 className="searchEngineName">{searchEngine}</h3>
+      <h3 className="searchEngineName">{searchEngine==="seevn"?"JioSaavn":false||searchEngine==="wunk"?"Wync Music":false||searchEngine==="gaama"?"Gaana":false||searchEngine==="mtmusic"?"Search Results":false||searchEngine==="hunjama"?"Hungama":false||searchEngine==="ressa"?"Resso":false}</h3>
       <div className="musicItems">
         {article &&
           !loading &&
           article.map((element, id, result) => {
             return (
-              <Search
-                key={id}
-                id={parseInt(id)}
-                article={article}
-              />
+              <Search key={id} id={parseInt(id)} article={article} />
             );
           }, 80)}
       </div>

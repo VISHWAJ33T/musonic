@@ -62,40 +62,6 @@ nav .content {
   align-items: center;
 }
 
-nav .content .links {
-  margin-left: 80px;
-  display: flex;
-}
-
-.content .logo a {
-  color: #fff;
-  font-size: 30px;
-  font-weight: 600;
-}
-
-.content .links li {
-  list-style: none;
-  line-height: 70px;
-}
-
-.content .links li a,
-.content .links li label {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 9px 17px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.content .links li label {
-  display: none;
-}
-
-.content .links li a:hover,
-.content .links li label:hover {
-  background: #323c4e;
-}
 
 .wrapper .search-icon,
 .wrapper .menu-icon {
@@ -314,10 +280,6 @@ nav .content .links {
     padding: 0 10px;
   }
 
-  .content .logo a {
-    font-size: 27px;
-  }
-
   .wrapper .search-box {
     max-width: calc(100% - 70px);
   }
@@ -386,7 +348,10 @@ ul {
 }
 
 .logoImg {
-  width: 100px;
+  width: 200px;
+  height: 70px;
+  object-fit: cover;
+  object-position: 0% 85%; 
 }
 
 /* HEADER AND FOOTER CSS ENDS HERE */
@@ -399,7 +364,7 @@ ul {
   min-height: 100vh;
   width: 100vw;
   z-index: -1;
-  padding-bottom: 220px;
+  padding-bottom: 250px;
 }
 
 
@@ -434,35 +399,44 @@ ul {
 
 
 .mediaplayer {
-  /* display: absolute; */
-  /* background-color: #181d25; */
-  padding: 0px 20px;
-  /* border-radius: 10px; */
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  /* justify-content: flex-end; */
+  background-color: #f9f9f9af;
+  /* padding: 0px 20px; */
+  border-radius: 10px 20px 10px 10px;
+  box-shadow: 2px 5px 5px rgb(33, 33, 33);
   position: fixed;
   bottom: 10px;
-  left: 10px;
-
-
-
+  /* margin:auto; */
+  left: 1vw;
+  max-width: 500px;
+}
+.mediaplayer:hover{
+  box-shadow: 0 -5px 3px -3px black, 0 5px 3px -3px ;
+  transform: translateY(-5px);
+  transition:0.5s;
 }
 
 .mediaplayer audio {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+  /* position: fixed; */
+  /* bottom: 10px; */
+  /* left: 10px; */
   display: block;
-  border: 0;
+  /* border: 10px; */
   /* height:50px; */
-  width: calc(100vw - 20px);
+  /* width: calc(100vw - 20px); */
+  width: 100%;
   /* z-index: 10; */
 }
 
 .playerImg {
   display: flex;
-  color: white;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: flex-end;
-  margin: 60px 0;
+  margin: 10px 0;
 }
 
 .playerImg img {
@@ -473,59 +447,67 @@ ul {
   /* height: 200px; */
 }
 
-.playerImg h1 {
-  background-color: #181d25;
-  padding: 10px 20px;
-  border-radius: 20px;
+.playerImg h2 {
+  background-color: rgba(255, 255, 255, 0.635);
+  color: #181d25;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin: 0 10px;
 }
 
 .searchEngines {
-  color: white;
-  background-color: #181d25bb;
+  color: #181d25bb;
+  background-color: rgba(255, 255, 255, 0.575);
   width: 98vw;
-  max-height: 350px;
+  height: 270px;
   margin: 10px auto;
-  border: 5px solid white;
+  border: 1px solid #181d25bb;
   border-radius: 10px;
+  overflow-y: auto;
+}
+.searchEngines:hover{
+  box-shadow: 5px 10px 10px rgb(33, 33, 33); 
+  transform: translateY(-4px);
+  transition: 0.3s;
+
 }
 
 .searchEngineName {
-  font-size: 35px;
+  font-size: 30px;
   margin: 10px 30px;
 }
 
 .musicItems {
   display: flex;
-  /* justify-content: flex-start; */
-  align-items: flex-start;
+  justify-content: start;
+  align-items: center;
   margin: 0 0px;
-  overflow-x: scroll;
 }
 
 .musicItem {
   text-align: center;
   position: relative;
   left: 10px;
-  margin: 0px auto 5px auto;
-  height: 250px
-    /* width:200px; */
-    /* overflow-y: auto; */
-    /* max-height: 400px; */
 }
 
 .musicItem img:hover {
   z-index: 1000;
-  transform: scale(1.1);
+  transform: scale(1.05);
+  box-shadow: 2px 5px 5px rgb(33, 33, 33);
+  /* transform: translateY(-4px); */
   transition: 0.5s;
 }
 
 .musicItem img {
-  width: 200px;
-  min-width: 60px;
+  max-width: 150px;
+  min-width: 100px;
+  margin:0 10px;
 }
 
 .musicTitle {
-  font-size: 1rem;
-  max-height: 25px;
-  width: 20vw;
+  font-size: 0.7rem;
+  max-height: 20px;
+  max-width: 150px;
+  overflow-y: scroll;
+  /* width: 20vw; */
 }
