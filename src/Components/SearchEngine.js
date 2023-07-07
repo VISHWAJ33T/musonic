@@ -11,25 +11,38 @@ export default function SearchEngine({
 }) {
   const [article, setArticle] = useState([]);
   let searchURL = `/api?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`;
-  const updateSearch = async () => {
-    const data = await fetch(searchURL);
-    setLoading(true);
-    setProgress(10);
-    let parsedData = await data.json();
-    setProgress(40);
-    setArticle(parsedData.response);
-    setProgress(80);
-    setLoading(false);
-    setProgress(100);
-  };
+  // const updateSearch = async () => {
+  //   const data = await fetch(searchURL);
+  //   setLoading(true);
+  //   setProgress(10);
+  //   let parsedData = await data.json();
+  //   setProgress(40);
+  //   setArticle(parsedData.response);
+  //   setProgress(80);
+  //   setLoading(false);
+  //   setProgress(100);
+  // };
 
   useEffect(() => {
+    const updateSearch = async () => {
+      const data = await fetch(searchURL);
+      setLoading(true);
+      setProgress(10);
+      let parsedData = await data.json();
+      setProgress(40);
+      setArticle(parsedData.response);
+      setProgress(80);
+      setLoading(false);
+      setProgress(100);
+    };
+  
     // window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     updateSearch();
     return () => {
       updateSearch();
     };
-  }, [title,updateSearch]);
+  }, [title]);
+  
   return (
     <div className="searchEngines">
       <h3 className="searchEngineName">{searchEngine==="seevn"?"JioSaavn":false||searchEngine==="wunk"?"Wync Music":false||searchEngine==="gaama"?"Gaana":false||searchEngine==="mtmusic"?"Search Results":false||searchEngine==="hunjama"?"Hungama":false||searchEngine==="ressa"?"Resso":false}</h3>
