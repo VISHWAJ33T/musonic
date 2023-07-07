@@ -41,7 +41,7 @@ export default function SearchEngine({
     return () => {
       updateSearch();
     };
-  }, [title]);
+  }, [title, searchURL, setLoading, setProgress]);
   
   return (
     <div className="searchEngines">
