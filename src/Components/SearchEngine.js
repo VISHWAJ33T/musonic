@@ -29,7 +29,7 @@ export default function SearchEngine({
     return () => {
       updateSearch();
     };
-  }, [title]);
+  }, [title,updateSearch]);
   return (
     <div className="searchEngines">
       <h3 className="searchEngineName">{searchEngine==="seevn"?"JioSaavn":false||searchEngine==="wunk"?"Wync Music":false||searchEngine==="gaama"?"Gaana":false||searchEngine==="mtmusic"?"Search Results":false||searchEngine==="hunjama"?"Hungama":false||searchEngine==="ressa"?"Resso":false}</h3>
