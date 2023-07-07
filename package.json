@@ -15,10 +15,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "proxy": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "proxy": "nodemon server.js"
   },
   "eslintConfig": {
     "extends": [

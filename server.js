@@ -1,17 +1,15 @@
-const express = require('express');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const express = require("express");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 const app = express();
 
-app.use(express.static('build'));
-
 app.use(
-  '/api',
+  "/api",
   createProxyMiddleware({
-    target: 'https://musicapi.x007.workers.dev',
+    target: "https://musicapi.x007.workers.dev/search",
     changeOrigin: true,
     pathRewrite: {
-      '^/api': '/search',
+      "^/api": "",
     },
   })
 );

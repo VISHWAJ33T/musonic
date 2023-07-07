@@ -14,7 +14,7 @@ export default function SearchEngine({
 
   useEffect(() => {
     const updateSearch = async () => {
-      const data = await fetch(`/api/search?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
+      const data = await fetch(`/api?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
       setLoading(true);
       setProgress(10);
       let parsedData = await data.json();
