@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
+
 export default function SearchEngine({
   loading,
   searchEngine,
@@ -10,22 +11,10 @@ export default function SearchEngine({
   setArticles,
 }) {
   const [article, setArticle] = useState([]);
-  let searchURL = `/search?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`;
-  // const updateSearch = async () => {
-  //   const data = await fetch(searchURL);
-  //   setLoading(true);
-  //   setProgress(10);
-  //   let parsedData = await data.json();
-  //   setProgress(40);
-  //   setArticle(parsedData.response);
-  //   setProgress(80);
-  //   setLoading(false);
-  //   setProgress(100);
-  // };
 
   useEffect(() => {
     const updateSearch = async () => {
-      const data = await fetch(searchURL);
+      const data = await fetch(`/api/search?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
       setLoading(true);
       setProgress(10);
       let parsedData = await data.json();
@@ -35,25 +24,32 @@ export default function SearchEngine({
       setLoading(false);
       setProgress(100);
     };
-  
-    // window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+
     updateSearch();
-    return () => {
-      updateSearch();
-    };
-  }, [title, searchURL, setLoading, setProgress]);
-  
+  }, [title, searchEngine, setLoading, setProgress]);
+
   return (
     <div className="searchEngines">
-      <h3 className="searchEngineName">{searchEngine==="seevn"?"JioSaavn":false||searchEngine==="wunk"?"Wync Music":false||searchEngine==="gaama"?"Gaana":false||searchEngine==="mtmusic"?"Search Results":false||searchEngine==="hunjama"?"Hungama":false||searchEngine==="ressa"?"Resso":false}</h3>
+      <h3 className="searchEngineName">
+        {searchEngine === "seevn"
+          ? "JioSaavn"
+          : searchEngine === "wunk"
+          ? "Wync Music"
+          : searchEngine === "gaama"
+          ? "Gaana"
+          : searchEngine === "mtmusic"
+          ? "Search Results"
+          : searchEngine === "hunjama"
+          ? "Hungama"
+          : searchEngine === "ressa"
+          ? "Resso"
+          : false}
+      </h3>
       <div className="musicItems">
-        {article &&
-          !loading &&
-          article.map((element, id, result) => {
-            return (
-              <Search key={id} id={parseInt(id)} article={article} />
-            );
-          }, 80)}
+        {!loading &&
+          article.map((element, id) => {
+            return <Search key={id} id={id} article={article} />;
+          })}
       </div>
     </div>
   );
