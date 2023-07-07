@@ -14,16 +14,23 @@ export default function SearchEngine({
 
   useEffect(() => {
     const updateSearch = async () => {
-      const data = await fetch(`/search?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
-      setLoading(true);
-      setProgress(10);
-      let parsedData = await data.json();
-      setProgress(40);
-      setArticle(parsedData.response);
-      setProgress(80);
-      setLoading(false);
-      setProgress(100);
+      try {
+        const data = await fetch(`/api?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
+        setLoading(true);
+        setProgress(10);
+        let parsedData = await data.json();
+        console.log(parsedData); // Log the API response for debugging
+        setProgress(40);
+        setArticle(parsedData.response);
+        setProgress(80);
+        setLoading(false);
+        setProgress(100);
+      } catch (error) {
+        console.error('Error fetching API:', error);
+        // Handle the error case and display an error message to the user
+      }
     };
+    
 
     updateSearch();
   }, [title, searchEngine, setLoading, setProgress]);
