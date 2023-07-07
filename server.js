@@ -1,15 +1,19 @@
-const express = require("express");
-const { createProxyMiddleware } = require("http-proxy-middleware");
+const express = require('express');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+const cors = require('cors');
 
 const app = express();
 
+app.use(express.static('build'));
+app.use(cors()); // Enable CORS
+
 app.use(
-  "/api",
+  '/api',
   createProxyMiddleware({
-    target: "https://musicapi.x007.workers.dev/search",
+    target: 'https://musicapi.x007.workers.dev',
     changeOrigin: true,
     pathRewrite: {
-      "^/api": "",
+      '^/api': '/search',
     },
   })
 );

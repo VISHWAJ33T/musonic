@@ -30,8 +30,6 @@ export default function SearchEngine({
         // Handle the error case and display an error message to the user
       }
     };
-    
-
     updateSearch();
   }, [title, searchEngine, setLoading, setProgress]);
 
