@@ -417,6 +417,7 @@ ul {
 @media  (max-width: 530px) {
   .mediaplayer{
   width: 98vw;
+  bottom:2px;
   }
   
 }
