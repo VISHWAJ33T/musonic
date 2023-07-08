@@ -20,7 +20,7 @@
 }
 
 :root {
-  --image-url: url("https://hls-server.vercel.app/img/bda83bc724a5cef6ae1ba1dfbdedb17dd2e5babb1a78bf42d19626f871fcc3ed7a3400a220ab35e300303bc2f43ba3fb8e5faa07c2b6566675fa76cb760b71e09cc3dec3aed37064db378b23f3a2c16285f4884adcf257fa8dda9788c4d7a58b6f95e391be2e1d6a878daf2297a03313f1fd43685fb53a2389234ac3e18f7781ccd618f476fa94c41428145fe3d8f71d");
+  --image-url: url("https://i.redd.it/nayaab-alt-wallpaper-dropping-this-after-observing-the-v0-a8j7l30hleia1.jpg?width=3840&format=pjpg&auto=webp&s=8454b9e9130a7982353979ac67b534ec802b6a36");
 }
 
 *::-webkit-scrollbar {
@@ -412,7 +412,13 @@ ul {
   bottom: 10px;
   /* margin:auto; */
   left: 1vw;
-  max-width: 500px;
+  max-width: 530px;
+}
+@media  (max-width: 530px) {
+  .mediaplayer{
+  width: 98vw;
+  }
+  
 }
 .mediaplayer:hover{
   box-shadow: 0 -5px 3px -3px black, 0 5px 3px -3px ;
@@ -475,6 +481,7 @@ ul {
 .searchEngineName {
   font-size: 30px;
   margin: 10px 30px;
+
 }
 
 .musicItems {
@@ -482,6 +489,7 @@ ul {
   justify-content: flex-start;
   align-items: center;
   margin: 0 0px;
+  overflow-x: auto
 }
 
 .musicItem {

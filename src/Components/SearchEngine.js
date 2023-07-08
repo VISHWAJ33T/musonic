@@ -15,7 +15,7 @@ export default function SearchEngine({
   useEffect(() => {
     const updateSearch = async () => {
       try {
-        const data = await fetch(`/api?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
+        const data = await fetch(`https://musicapi.x007.workers.dev/search?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
         setLoading(true);
         setProgress(10);
         let parsedData = await data.json();
@@ -31,7 +31,7 @@ export default function SearchEngine({
       }
     };
     updateSearch();
-  }, [title, searchEngine, setLoading, setProgress,updateSearch]);
+  }, [title, searchEngine, setProgress]);
 
   return (
     <div className="searchEngines">

@@ -8,7 +8,6 @@ export default function Body({ title }) {
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState([]);
-  let arr = [];
 
   return (
     <div className="body">
@@ -42,7 +41,7 @@ export default function Body({ title }) {
             setLoading={setLoading}
             setProgress={setProgress}
             title={title}
-          />{" "}
+          />
           <SearchEngine
             loading={loading}
             articles={articles}
@@ -75,7 +74,7 @@ export default function Body({ title }) {
               <Route
                 path={`/play/:title/:img/:musicid`}
                 exact
-                element={<MediaPlayer articles={articles} arr={arr} />}
+                element={<MediaPlayer articles={articles} />}
               />
             </Routes>
           </div>

@@ -16,9 +16,14 @@ export default function MediaPlayer() {
     if (audioRef.current) {
       audioRef.current.src = audioSrc;
       audioRef.current.load();
-      // audioRef.current.play(); // Autoplay when the src is updated
+      audioRef.current.play(); // Autoplay when the src is updated
     }
   }, [audioSrc]);
+
+  const handleSongEnd = () => {
+    audioRef.current.currentTime = 0; // Reset playback to the beginning
+    audioRef.current.play(); // Start playing again
+  };
 
   return (
     <>
@@ -27,7 +32,13 @@ export default function MediaPlayer() {
           <img src={`https://hls-server.vercel.app/img/${img}`} alt="" />
           <h2>{title}</h2>
         </div>
-        <audio controls autoPlay ref={audioRef}>
+        <audio
+          controls
+          ref={audioRef}
+          preload="none" // Disable initial preload
+          autoPlay
+          onEnded={handleSongEnd}
+        >
           <source src={audioSrc} type="audio/mp3" />
         </audio>
       </div>
