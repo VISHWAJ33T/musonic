@@ -31,7 +31,7 @@ export default function SearchEngine({
       }
     };
     updateSearch();
-  }, [title, searchEngine, setProgress]);
+  }, [title, searchEngine, setProgress,setLoading]);
 
   return (
     <div className="searchEngines">
@@ -40,10 +40,12 @@ export default function SearchEngine({
           ? "JioSaavn"
           : searchEngine === "wunk"
           ? "Wync Music"
-          : searchEngine === "gaama"
-          ? "Gaana"
+          : searchEngine === "hemaroo"
+          ? "Shemaroo Music"
+          // : searchEngine === "gaama"
+          // ? "Gaana"
           : searchEngine === "mtmusic"
-          ? "Search Results"
+          ? "YT Music"
           : searchEngine === "hunjama"
           ? "Hungama"
           : searchEngine === "ressa"

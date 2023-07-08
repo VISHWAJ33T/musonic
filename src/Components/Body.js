@@ -37,24 +37,6 @@ export default function Body({ title }) {
             loading={loading}
             articles={articles}
             setArticles={setArticles}
-            searchEngine={"ressa"}
-            setLoading={setLoading}
-            setProgress={setProgress}
-            title={title}
-          />
-          <SearchEngine
-            loading={loading}
-            articles={articles}
-            setArticles={setArticles}
-            searchEngine={"gaama"}
-            setLoading={setLoading}
-            setProgress={setProgress}
-            title={title}
-          />
-          <SearchEngine
-            loading={loading}
-            articles={articles}
-            setArticles={setArticles}
             searchEngine={"seevn"}
             setLoading={setLoading}
             setProgress={setProgress}
@@ -64,7 +46,35 @@ export default function Body({ title }) {
             loading={loading}
             articles={articles}
             setArticles={setArticles}
+            searchEngine={"ressa"}
+            setLoading={setLoading}
+            setProgress={setProgress}
+            title={title}
+          />
+          {/* <SearchEngine
+            loading={loading}
+            articles={articles}
+            setArticles={setArticles}
+            searchEngine={"gaama"}
+            setLoading={setLoading}
+            setProgress={setProgress}
+            title={title}
+          /> */}
+
+          <SearchEngine
+            loading={loading}
+            articles={articles}
+            setArticles={setArticles}
             searchEngine={"hunjama"}
+            setLoading={setLoading}
+            setProgress={setProgress}
+            title={title}
+          />
+          <SearchEngine
+            loading={loading}
+            articles={articles}
+            setArticles={setArticles}
+            searchEngine={"hemaroo"}
             setLoading={setLoading}
             setProgress={setProgress}
             title={title}
