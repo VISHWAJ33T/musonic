@@ -3,7 +3,7 @@ import "./App.css";
 import Body from "./Components/Body";
 import Navbar from "./Components/Navbar";
 function App() {
-  const [title, setTitle] = useState("Retro");
+  const [title, setTitle] = useState("Hindi Songs");
   return (
     <div className="app">
       <Navbar

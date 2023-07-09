@@ -13,7 +13,7 @@ export default function Body({ title }) {
     <div className="body">
       <BrowserRouter>
         <>
-          <LoadingBar color="white" progress={progress} height={1} />
+          <LoadingBar color="white" progress={progress} height={3} />
           {loading && <Spinner />}
           <SearchEngine
             loading={loading}
