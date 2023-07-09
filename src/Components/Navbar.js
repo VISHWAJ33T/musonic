@@ -29,7 +29,7 @@ export default function Navbar({ setTitle }) {
           <form action="#" className="search-box">
             <input
               type="text"
-              placeholder="Type Something to Search..."
+              placeholder="Search Meuzik"
               value={value}
               onChange={handleOnChange}
               required

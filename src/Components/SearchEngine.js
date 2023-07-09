@@ -16,7 +16,11 @@ export default function SearchEngine({
     setLoading(true);
     const updateSearch = async () => {
       try {
-        const data = await fetch(`https://musicapi.x007.workers.dev/search?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
+        const data = await fetch(
+          `https://musicapi.x007.workers.dev/search?searchEngine=${searchEngine}&q=${encodeURIComponent(
+            title
+          )}`
+        );
         setProgress(10);
         let parsedData = await data.json();
         console.log(parsedData); // Log the API response for debugging
@@ -26,39 +30,46 @@ export default function SearchEngine({
         setProgress(100);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching API:', error);
+        console.error("Error fetching API:", error);
         // Handle the error case and display an error message to the user
       }
     };
     updateSearch();
-  }, [title, searchEngine,setLoading, setProgress]);
+  }, [title, searchEngine, setLoading, setProgress]);
 
   return (
-    <div className="searchEngines">
-      <h3 className="searchEngineName">
-        {searchEngine === "seevn"
-          ? "JioSaavn"
-          : searchEngine === "wunk"
-          ? "Wync Music"
-          : searchEngine === "hemaroo"
-          ? "Shemaroo"
-          // : searchEngine === "gaama"
-          // ? "Gaana"
-          : searchEngine === "mtmusic"
-          ? "YT Music"
-          : searchEngine === "hunjama"
-          ? "Hungama"
-          : searchEngine === "ressa"
-          ? "Resso"
-          : false}
-      </h3>
-      <div className="musicItems">
-        {(article.length!==0)?
-        !loading &&
-          article.map((element, id) => {
-            return <Search key={id} id={id} article={article} />;
-          }):<NoResults/>}
-      </div>
-    </div>
+    <>
+      {article.length !== 0 && (
+        <div className="searchEngines">
+          <h3 className="searchEngineName">
+            {searchEngine === "seevn"
+              ? "JioSaavn"
+              : searchEngine === "wunk"
+              ? "Wync Music"
+              : searchEngine === "hemaroo"
+              ? "Shemaroo"
+              : // : searchEngine === "gaama"
+              // ? "Gaana"
+              searchEngine === "mtmusic"
+              ? "YT Music"
+              : searchEngine === "hunjama"
+              ? "Hungama"
+              : searchEngine === "ressa"
+              ? "Resso"
+              : false}
+          </h3>
+          <div className="musicItems">
+            {article.length !== 0 ? (
+              !loading &&
+              article.map((element, id) => {
+                return <Search key={id} id={id} article={article} />;
+              })
+            ) : (
+              <NoResults />
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 }
