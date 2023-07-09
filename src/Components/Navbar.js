@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "./Meuzik.gif";
+import Logo from "./Meuzik.png";
 export default function Navbar({ setTitle }) {
   const [value, setValue] = useState("");
   const handleOnChange = (event) => {

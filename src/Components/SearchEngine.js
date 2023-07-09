@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
-
+import NoResults from "./NoResults.js";
 export default function SearchEngine({
   loading,
   searchEngine,
@@ -13,25 +13,25 @@ export default function SearchEngine({
   const [article, setArticle] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
     const updateSearch = async () => {
       try {
         const data = await fetch(`https://musicapi.x007.workers.dev/search?searchEngine=${searchEngine}&q=${encodeURIComponent(title)}`);
-        setLoading(true);
         setProgress(10);
         let parsedData = await data.json();
         console.log(parsedData); // Log the API response for debugging
         setProgress(40);
         setArticle(parsedData.response);
         setProgress(80);
-        setLoading(false);
         setProgress(100);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching API:', error);
         // Handle the error case and display an error message to the user
       }
     };
     updateSearch();
-  }, [title, searchEngine, setProgress,setLoading]);
+  }, [title, searchEngine,setLoading, setProgress]);
 
   return (
     <div className="searchEngines">
@@ -41,7 +41,7 @@ export default function SearchEngine({
           : searchEngine === "wunk"
           ? "Wync Music"
           : searchEngine === "hemaroo"
-          ? "Shemaroo Music"
+          ? "Shemaroo"
           // : searchEngine === "gaama"
           // ? "Gaana"
           : searchEngine === "mtmusic"
@@ -53,10 +53,11 @@ export default function SearchEngine({
           : false}
       </h3>
       <div className="musicItems">
-        {!loading &&
+        {(article.length!==0)?
+        !loading &&
           article.map((element, id) => {
             return <Search key={id} id={id} article={article} />;
-          })}
+          }):<NoResults/>}
       </div>
     </div>
   );

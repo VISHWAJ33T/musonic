@@ -4,7 +4,7 @@ export default function NoResults() {
   return (
       <div className="notFound">
         <img className="errorGIF" src={Nothing} alt="" />
-        <h3>Sorry! Can't find any results</h3>
+        <h4>Sorry! Can't find any Song here</h4>
       </div>
   );
 }

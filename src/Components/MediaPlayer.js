@@ -6,6 +6,8 @@ export default function MediaPlayer() {
   const [audioSrc, setAudioSrc] = useState(
     `https://musicapi.x007.workers.dev/fetch?id=${musicid}`
   );
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef();
 
   useEffect(() => {
@@ -16,13 +18,29 @@ export default function MediaPlayer() {
     if (audioRef.current) {
       audioRef.current.src = audioSrc;
       audioRef.current.load();
-      audioRef.current.play(); // Autoplay when the src is updated
+
+      // Event listener to check when audio is loaded
+      audioRef.current.addEventListener("canplaythrough", () => {
+        setIsLoaded(true);
+      });
     }
   }, [audioSrc]);
 
+  useEffect(() => {
+    if (isLoaded) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isLoaded, isPlaying]);
+
   const handleSongEnd = () => {
-    audioRef.current.currentTime = 0; // Reset playback to the beginning
-    audioRef.current.play(); // Start playing again
+    if (audioRef.current.duration === audioRef.current.currentTime) {
+      audioRef.current.currentTime = 0; // Reset playback to the beginning
+      audioRef.current.play(); // Start playing again
+    }
   };
 
   return (
@@ -36,7 +54,6 @@ export default function MediaPlayer() {
           controls
           ref={audioRef}
           preload="none" // Disable initial preload
-          autoPlay
           onEnded={handleSongEnd}
         >
           <source src={audioSrc} type="audio/mp3" />
