@@ -1,4 +1,4 @@
-# This is ImVt app
+# This is Meuzik App
 
 This project was made with React js
 
