@@ -214,7 +214,7 @@ ul {
   min-height: 100vh;
   width: 100vw;
   z-index: -1;
-  padding-bottom: 225px;
+  padding-bottom: 230px;
   background-color: #23252aa2;
 }
 
@@ -262,14 +262,15 @@ ul {
   max-width: 530px;
 }
 
-@media (max-width: 530px) {
+@media (max-width: 400px) {
   .body{
-    padding-bottom: calc(100% - 240px);
+    padding-bottom: 175px;
   }
   .mediaplayer {
     position: fixed;
     width: 96vw;
-    bottom: 1px;
+    margin-left: 1vw;
+    bottom: 3px;
   }
   .mediaplayer img{
     max-width: 100px;

@@ -46,11 +46,11 @@ export default function SearchEngine({
               ? "JioSaavn"
               : searchEngine === "wunk"
               ? "Wync Music"
+              // : searchEngine === "gaama"
+              // ? "Gaana"
               : searchEngine === "hemaroo"
               ? "Shemaroo"
-              : // : searchEngine === "gaama"
-              // ? "Gaana"
-              searchEngine === "mtmusic"
+              :searchEngine === "mtmusic"
               ? "YT Music"
               : searchEngine === "hunjama"
               ? "Hungama"
@@ -62,7 +62,7 @@ export default function SearchEngine({
             {article.length !== 0 ? (
               !loading &&
               article.map((element, id) => {
-                return <Search key={id} id={id} article={article} />;
+                return <Search key={id} id={id} searchEngine={searchEngine} article={article} />;
               })
             ) : (
               <NoResults />

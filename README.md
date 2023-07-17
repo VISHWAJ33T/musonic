@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=images/logo.png height=100px alt="ImVt Logo" >
+  <img src=images/logo.png height=100px alt="Meuzik Logo" >
 </p>
 
 # Meuzik

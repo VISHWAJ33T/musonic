@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import MediaPlayer from "./MediaPlayer";
+import MediaPlayerGaana from "./MediaPlayerGaana";
 import SearchEngine from "./SearchEngine";
+import SearchEngineGaana from "./SearchEngineGaana";
 import Spinner from "./Spinner";
 export default function Body({ title }) {
   const [progress, setProgress] = useState(0);
@@ -15,11 +17,21 @@ export default function Body({ title }) {
         <>
           <LoadingBar color="white" progress={progress} height={3} />
           {loading && <Spinner />}
+
           <SearchEngine
             loading={loading}
             articles={articles}
             setArticles={setArticles}
-            searchEngine={"mtmusic"}
+            searchEngine={"seevn"}
+            setLoading={setLoading}
+            setProgress={setProgress}
+            title={title}
+          />
+          <SearchEngineGaana
+            loading={loading}
+            articles={articles}
+            setArticles={setArticles}
+            searchEngine={"gaama"}
             setLoading={setLoading}
             setProgress={setProgress}
             title={title}
@@ -33,15 +45,7 @@ export default function Body({ title }) {
             setProgress={setProgress}
             title={title}
           />
-          <SearchEngine
-            loading={loading}
-            articles={articles}
-            setArticles={setArticles}
-            searchEngine={"seevn"}
-            setLoading={setLoading}
-            setProgress={setProgress}
-            title={title}
-          />
+
           <SearchEngine
             loading={loading}
             articles={articles}
@@ -51,16 +55,15 @@ export default function Body({ title }) {
             setProgress={setProgress}
             title={title}
           />
-          {/* <SearchEngine
+          <SearchEngine
             loading={loading}
             articles={articles}
             setArticles={setArticles}
-            searchEngine={"gaama"}
+            searchEngine={"mtmusic"}
             setLoading={setLoading}
             setProgress={setProgress}
             title={title}
-          /> */}
-
+          />
           <SearchEngine
             loading={loading}
             articles={articles}
@@ -84,7 +87,22 @@ export default function Body({ title }) {
               <Route
                 path={`/play/:title/:img/:musicid`}
                 exact
-                element={<MediaPlayer articles={articles} />}
+                element={
+                  <>
+                    <MediaPlayer articles={articles} />
+                  </>
+                }
+              />
+            </Routes>
+            <Routes>
+              <Route
+                path={`/play/gaana/:title/:img/:musicid`}
+                exact
+                element={
+                  <>
+                    <MediaPlayerGaana articles={articles} />
+                  </>
+                }
               />
             </Routes>
           </div>

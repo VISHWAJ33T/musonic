@@ -7,7 +7,7 @@ export default function MediaPlayer() {
     `https://musicapi.x007.workers.dev/fetch?id=${musicid}`
   );
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying] = useState(true); // Set isPlaying to true initially
   const audioRef = useRef();
 
   useEffect(() => {
@@ -55,6 +55,7 @@ export default function MediaPlayer() {
           ref={audioRef}
           preload="none" // Disable initial preload
           onEnded={handleSongEnd}
+          autoPlay // Add the autoPlay attribute to autoplay the audio
         >
           <source src={audioSrc} type="audio/mp3" />
         </audio>
