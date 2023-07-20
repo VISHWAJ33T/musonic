@@ -6,12 +6,8 @@ function App() {
   const [title, setTitle] = useState("top songs hindi");
   return (
     <div className="app">
-      <Navbar
-        setTitle={setTitle}
-      />
-      <Body
-        title={title}
-      />
+      <Navbar setTitle={setTitle} />
+      <Body title={title} />
     </div>
   );
 }

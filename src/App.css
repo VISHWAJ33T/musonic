@@ -263,16 +263,18 @@ ul {
 }
 
 @media (max-width: 400px) {
-  .body{
+  .body {
     padding-bottom: 175px;
   }
+
   .mediaplayer {
     position: fixed;
     width: 96vw;
     margin-left: 1vw;
     bottom: 3px;
   }
-  .mediaplayer img{
+
+  .mediaplayer img {
     max-width: 100px;
   }
 }
